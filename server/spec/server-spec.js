@@ -55,7 +55,7 @@ describe("Persistent Node Chat Server", function() {
           expect(results.length).to.equal(1);
 
           // TODO: If you don't have a column named text, change this test.
-          expect(results[0].message).to.equal("In mercy's name, three days is all I need.");
+          expect(results[0].text).to.equal("In mercy's name, three days is all I need.");
 
           done();
         });
@@ -65,7 +65,7 @@ describe("Persistent Node Chat Server", function() {
 
   it("Should output all messages from the DB", function(done) {
     // Let's insert a message into the db
-       var queryString = "INSERT INTO messages (message, room) VALUES ('Men like you can never change!', 'main')";
+       var queryString = "INSERT INTO messages (text, roomname, userID) VALUES ('Men like you can never change!', 'main', '1')";
        var queryArgs = [];
     // TODO - The exact query string and query args to use
     // here depend on the schema you design, so I'll leave
