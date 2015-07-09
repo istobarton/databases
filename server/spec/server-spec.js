@@ -38,7 +38,7 @@ describe("Persistent Node Chat Server", function() {
               uri: "http://127.0.0.1:3000/classes/messages",
               json: {
                 username: "Valjean",
-                message: "In mercy's name, three days is all I need.",
+                text: "In mercy's name, three days is all I need.",
                 roomname: "Hello"
               }
       }, function () {
@@ -77,7 +77,8 @@ describe("Persistent Node Chat Server", function() {
       // Now query the Node chat server and see if it returns
       // the message we just inserted:
       request("http://127.0.0.1:3000/classes/messages", function(error, response, body) {
-        var messageLog = JSON.parse(body);
+        var messageLog = JSON.parse(body).results;
+        console.log(messageLog);
         expect(messageLog[0].text).to.equal("Men like you can never change!");
         expect(messageLog[0].roomname).to.equal("main");
         done();

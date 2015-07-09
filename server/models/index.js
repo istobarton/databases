@@ -41,7 +41,7 @@ module.exports = {
 
     },
     post: function (req, res) {
-      db.query("INSERT INTO users (username) VALUES (" + db.escape(req.body.text) + ")", function(err, result){
+      db.query("INSERT INTO users (username) VALUES (" + db.escape(req.body.username) + ")", function(err, result){
         //TODO -- MAKE QUERY STRING AND LOG RESULT FROM MYSQL TO SEE WHY RECIEVING NULL IN TEST RESULTS
         res.writeHead(201, headers);
         res.end(JSON.stringify({location: '/classes/users'}));
